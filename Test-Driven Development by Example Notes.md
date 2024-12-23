@@ -39,10 +39,10 @@
 -  TDD cycle:
   - **Write a test:** Write a "story" of the interface you wish you had, and the outputs of that interface
   - **Make it run:** Quickly get the bar to go green. Speed dominates everything else in this phase.
-  - **Make it right:** Remove all duplication you have introduced/all code mess.
+  - **Make it right:** Remove all duplication you have introduced/all code mess. This includes duplication between test and code.
 - As you refactor the code, you may realise that the interface you defined in the first step, isn't actually the best way to implement the required behaviour. As part of refactoring you can change the test to fit with your new understanding of how the interface should work.
 - **How to approach TDD - 3 stratergies:**
-  - **Fake it:** To get to green, return a constant. Then when refactoring gradually remove constants till you have real code.
+  - **Fake it:** To get to green, return a constant. Then when refactoring gradually remove constants till you have real code. (With faking values, you create data duplication. By removing this duplication you'll arrive at a proper implementation.)
   - **Use obvious implementation:** If there is an obvious solution, you can just implement this.
   - **Triangulation:** If you are struggling to see how to remove duplication, by adding more test cases it can help you generalise a problem.
 
@@ -75,3 +75,32 @@
 
 - With tests, instead of reasoning about whether something will work, you can emperically find the answer by running the tests.
 - Try not to add new tests when a current test is failing. If you need to, then it is best to rollback changes to a "green" state and then add the new test.
+
+### Chapter 11: The Root of All Evil
+
+- As you are developing you will create tests along the way. However, these tests created to help you with the "in-between steps" may become useless as more tests are added. You should delete these tests when they stop being useful.
+
+### Chapter 17: Money Retrospective
+
+- There are generally about the same number of lines of test code as functional code/
+- TDD cycle:
+  - Add a little test
+  - Run all tests and fail
+  - Make a change
+  - Run the tests and succeed
+  - Refacot to remove duplication
+- While tests from TDD are useful they don't replace other types of testing like:
+  - Performance testing
+  - Stress testing
+  - Usability testing
+- **Measures of test quality:**
+  - **Statement coverage:** Should be close to 100% if TDD being followed religiously.
+  - **Defect insertion:** To test the quality of the tests, you can have a program automatically insert errors and see if the tests still pass. (This is also known as mutation testing.)
+- You can improve test coverage by writing more tests. However you can also improve test coverage by simplifying the logic (through refactoring). As the code shrinks, the same tests will cover a greater portion of the code.
+- **Key takeaways:**
+  - Three approaches to making a test work cleanly:
+    - Fake it
+    - Triangulation
+    - Obvious Implementation
+  - Removing duplication between tests and code as a way to drive design
+  - The ability to control the gap between tests to increase confidence in tricky problems, or move quickly when things are simple.
