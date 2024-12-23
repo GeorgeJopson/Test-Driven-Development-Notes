@@ -41,7 +41,10 @@
   - **Make it run:** Quickly get the bar to go green. Speed dominates everything else in this phase.
   - **Make it right:** Remove all duplication you have introduced/all code mess.
 - As you refactor the code, you may realise that the interface you defined in the first step, isn't actually the best way to implement the required behaviour. As part of refactoring you can change the test to fit with your new understanding of how the interface should work.
-- **How to quickly get green:**
-  - **Fake it:** Return a constant (then when refactoring gradually remove constants till you have real code)
-  - **Use obvious implementation:** If this approach fails, it is often best to revert back to the "fake it" method.
-  - **Triangulation:** Demonstrated in chapter 3
+- **How to approach TDD - 3 stratergies:**
+  - **Fake it:** To get to green, return a constant. Then when refactoring gradually remove constants till you have real code.
+  - **Use obvious implementation:** If there is an obvious solution, you can just implement this.
+  - **Triangulation:** If you are struggling to see how to remove duplication, by adding more test cases it can help you generalise a problem.
+
+### Chapter 3: Equality for All
+- As you implement the code, new implied operations/functionality will be revealed. You can add those to the to-do list of tests.
