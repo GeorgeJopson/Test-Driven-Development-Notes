@@ -53,3 +53,20 @@
 ### Chapter 4: Privacy
 
 - Reducing coupling between tests and code is very useful. The less coupled the tests and code, the more you can refactor without breaking tests.
+
+### Chapter 5: Franc-ly Speaking
+
+- When implementing a new feature, you can start by making smaller tests that represent progress. These tests can help guide your development.
+
+### Chapter 6: Equality for All, Redux
+
+- When you are refactoring, you will often be dealing with code that doesn't have enough tests. You should write those tests retroactively before starting to refactor (to ensure that in the refactoring you don't break something).
+
+### Chapter 8: Makin' Objects
+
+- TDD works through many small steps. The smaller the step the more confident we can be (as it lets us get back to a state where all tests pass quicker).
+
+### Chapter 9: Times We're Livin' In
+
+- When working you may have a change to improve the code not needed to make the test pass. While strictly you shouldn't interrupt what you are doing, small interruptions can be permissible (although never interrupt an interruption).
+- The more confident you are, the bigger the steps you can take (the "higher gear" you can be in). However, the less confident you are, the smaller the steps you should take. As you work, you will constantly shift the "gear" you are in to match your confidence.
