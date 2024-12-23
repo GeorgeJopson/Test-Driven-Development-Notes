@@ -47,4 +47,9 @@
   - **Triangulation:** If you are struggling to see how to remove duplication, by adding more test cases it can help you generalise a problem.
 
 ### Chapter 3: Equality for All
+
 - As you implement the code, new implied operations/functionality will be revealed. You can add those to the to-do list of tests.
+
+### Chapter 4: Privacy
+
+- Reducing coupling between tests and code is very useful. The less coupled the tests and code, the more you can refactor without breaking tests.
