@@ -32,3 +32,16 @@
 - When you want to add a new feature, split it  into a to-do list of tests. Then focus on each test in turn (following the red-green-refactor steps to cross each test off). Add new tests when you think of them to the list.
 - When you write a test you are testing the API of some peice of code. Write the test imagining the perfect API of how you want the feature implemented. 
 - By creating a test, you create a dependency between the test and the code. By reducing duplication as much as possible, you can help eliminate dependencies as much as possible.
+- In the refactor step, you can take many small steps of refactoring (each time ensuring the tests are still green).
+
+### Chapter 2: Degenerate Objects
+
+-  TDD cycle:
+  - **Write a test:** Write a "story" of the interface you wish you had, and the outputs of that interface
+  - **Make it run:** Quickly get the bar to go green. Speed dominates everything else in this phase.
+  - **Make it right:** Remove all duplication you have introduced/all code mess.
+- As you refactor the code, you may realise that the interface you defined in the first step, isn't actually the best way to implement the required behaviour. As part of refactoring you can change the test to fit with your new understanding of how the interface should work.
+- **How to quickly get green:**
+  - **Fake it:** Return a constant (then when refactoring gradually remove constants till you have real code)
+  - **Use obvious implementation:** If this approach fails, it is often best to revert back to the "fake it" method.
+  - **Triangulation:** Demonstrated in chapter 3
