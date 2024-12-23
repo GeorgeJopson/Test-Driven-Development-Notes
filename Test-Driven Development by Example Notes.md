@@ -82,13 +82,13 @@
 
 ### Chapter 17: Money Retrospective
 
-- There are generally about the same number of lines of test code as functional code/
+- There are generally about the same number of lines of test code as functional code.
 - TDD cycle:
   - Add a little test
   - Run all tests and fail
   - Make a change
   - Run the tests and succeed
-  - Refacot to remove duplication
+  - Refactor to remove duplication
 - While tests from TDD are useful they don't replace other types of testing like:
   - Performance testing
   - Stress testing
