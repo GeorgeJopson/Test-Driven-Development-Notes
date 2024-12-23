@@ -70,3 +70,8 @@
 
 - When working you may have a change to improve the code not needed to make the test pass. While strictly you shouldn't interrupt what you are doing, small interruptions can be permissible (although never interrupt an interruption).
 - The more confident you are, the bigger the steps you can take (the "higher gear" you can be in). However, the less confident you are, the smaller the steps you should take. As you work, you will constantly shift the "gear" you are in to match your confidence.
+
+### Chapter 10: Interesting Times
+
+- With tests, instead of reasoning about whether something will work, you can emperically find the answer by running the tests.
+- Try not to add new tests when a current test is failing. If you need to, then it is best to rollback changes to a "green" state and then add the new test.
