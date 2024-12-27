@@ -122,3 +122,23 @@
 - The first step **arrange** is often the same from test to test
 - **Isolation** is key for tests, the success/failure of one test should be irrelevant to other tests.
   - Therefore, tests shouldn't share anything so objects should be recreated for each test that use them.
+
+## Part III: Patterns for Test-Driven Development
+
+### Chapter 25: Test-Driven Development Patterns
+
+- By testing you reduce stress because you know you haven't broken anything.
+- You should run your test after you write it, because even if you think it is going to fail you might be wrong (maybe your system already accounts for the tested feature).
+- Tests should be so fast that you can run them yourself and run them often. Then you can catch errors quickly.
+- **Isolated Tests:** Tests should be independent from each other.
+  - To have isolated tests you need to break your problem into many highly cohesive, losely coupled objects which can then easily (and quickly) be set up for each test.
+- **Test List:** Before you begin, write a list of all the tests you will have to write. You can then add items to the list as you gain knowledge about the system.
+Add each operation you want to implement (along with each case of that) and then refacotrings you think you will need to do.
+- When you write a test, the next step is to implement it. Don't write all your tests at once as by getting a test to work you gain more knowledge which might help you write the next test. It also is a more interesting way to work.
+- Conservative TDD says that you should never be more than one change away from all your tests running.
+- **Test First:** Write your tests first. It can clarify in your head what you are doing, and give you a method for scope control.
+- **Assert First:** When writing your tests, start by writing the asserts. Then you can work back from what the asserts need to check to fill out the test.
+- **Test Data:** 
+  - Use the minimal amount of test data necessary to check all the different cases.
+  - Never use the same constant twice unless the constant means the same thing. For example if we were implementing divide, 3/2 is different from 2/3. But if I used 2/2 as a test case we wouldn't know if the divide operation got the 2's the right way round.
+- **Evident Data:** Make the connection in the numbers used as test data obvious. If it is simple enough, writing out the calculation you did to get from the input to the output in the test is useful for other programmers to see how you got to the expected output.
