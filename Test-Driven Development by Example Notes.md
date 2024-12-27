@@ -78,7 +78,7 @@
 
 ### Chapter 11: The Root of All Evil
 
-- As you are developing you will create tests along the way. However, these tests created to help you with the "in-between steps" may become useless as more tests are added. You should delete these tests when they stop being useful.
+- As you are developing you will create tests along the way. However, these tests created to help you with the "in-between steps" may become useless as more tests are added. You should delete these "development" tests when they stop being useful.
 
 ### Chapter 17: Money Retrospective
 
