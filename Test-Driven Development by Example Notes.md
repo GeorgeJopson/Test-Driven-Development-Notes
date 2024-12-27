@@ -142,3 +142,10 @@ Add each operation you want to implement (along with each case of that) and then
   - Use the minimal amount of test data necessary to check all the different cases.
   - Never use the same constant twice unless the constant means the same thing. For example if we were implementing divide, 3/2 is different from 2/3. But if I used 2/2 as a test case we wouldn't know if the divide operation got the 2's the right way round.
 - **Evident Data:** Make the connection in the numbers used as test data obvious. If it is simple enough, writing out the calculation you did to get from the input to the output in the test is useful for other programmers to see how you got to the expected output.
+
+### Chapter 26: Red Bar Patterns
+
+- When deciding what test to implement next from your to-do list pick a test which will teach you something and you are confident you can implement.
+- when you are implementing a new operation, start by making a test for that operation which doesn't do anything (for example if you are implementing the plus functionality then this would be adding 0). By starting with trivially easy inputs/outputs you minimise the number of problems you have to solve. This is especially useful for tricky problems.
+- **Learning Tests:** When you are using an API from something you didn't develop (such as a library), you can create learning tests the verify the API works as expected. As part of learning the API you write these tests, but they can also be used to verify that when a new version of the 3rd party software releases it still works as before.
+- **Do Over:** Sometimes it is better to just start over. If you've made a complete mess, sometimes by starting back at a clean slate with the new knowledge you've gained is the best way to make progress.
