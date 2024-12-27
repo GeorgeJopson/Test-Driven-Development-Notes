@@ -104,3 +104,11 @@
     - Obvious Implementation
   - Removing duplication between tests and code as a way to drive design
   - The ability to control the gap between tests to increase confidence in tricky problems, or move quickly when things are simple.
+
+## Part II: The xUnit Example
+
+### Chapter 18: First Steps to xUnit
+
+- Refactoring pattern: Hardwire your code to work for one instance and then generalise it to work with all instances by replacing constants with variables.
+  - This is an advantage of TDD, you can start by implementing concrete examples you know work, and then generalising from there (instead of having to jump directly to the generalised example).
+- Don't be afraid to work in tiny steps (only changing a handful of lines at a time).
