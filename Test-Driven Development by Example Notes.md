@@ -112,3 +112,13 @@
 - Refactoring pattern: Hardwire your code to work for one instance and then generalise it to work with all instances by replacing constants with variables.
   - This is an advantage of TDD, you can start by implementing concrete examples you know work, and then generalising from there (instead of having to jump directly to the generalised example).
 - Don't be afraid to work in tiny steps (only changing a handful of lines at a time).
+
+### Chapter 19: Set the Table
+
+- 3A framework for writing tests (also know as **given, when, then**):
+  - **Arrange:** Create some objects
+  - **Act:** Stimulate them
+  - **Assert:** Check the 
+- The first step **arrange** is often the same from test to test
+- **Isolation** is key for tests, the success/failure of one test should be irrelevant to other tests.
+  - Therefore, tests shouldn't share anything so objects should be recreated for each test that use them.
