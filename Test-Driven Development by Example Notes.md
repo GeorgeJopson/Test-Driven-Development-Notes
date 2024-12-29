@@ -168,3 +168,8 @@ Add each operation you want to implement (along with each case of that) and then
 - **Triangulate:** If you have a situation where you have an operation you want to implement but you are not sure how to abstract the operation so it works on any case, implement two examples in the test case. By satisfying both examples you can arrive at this abstraction. Generally this takes more work than "Fake It" or "Obvious Implementation" because you have to add multiple examples (where all but one will have to be deleted to avoid unnecessary duplication). However, if you are struggling, having the two examples can help you come to an abstraction.
 - **Obvious Implementation:** If you can already see an obvious, simple solution just implement it. However if this causes a test to fail, move back to one of the "Fake It" or "Triangulate" techniques. Implementing an solution straight from the get go is moving quickly, but in unsteady territory it is easier to "move down a gear" and go slower.
 - **One to Many:** When implementing an operation which works on a collection of objects (for example a list/tuple/set/etc of objects), make it work with a single item first. Then when you have figured that out you can make it work for all the collection.
+
+### Chapter 29: xUnit Patterns
+
+- All tests should be written use only public protocol/the public API of the unit you are testing. This means you can refactor the implementation, without refactoring the test.
+- Fixtures can be used to reduce duplication of setting objects up.
