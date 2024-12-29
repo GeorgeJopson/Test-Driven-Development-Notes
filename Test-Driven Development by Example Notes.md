@@ -158,3 +158,13 @@ Add each operation you want to implement (along with each case of that) and then
 - **Log String:** To verify that the sequence in which messages are called is correct, you could use a log string. The program under test produces this log string (adding an piece of text each time it sends a message), and this is checked by the test.
 - **Crash Test Dummy:** You pass in a "fake" object to code which returns an error when one of its methods is called. For example a file system can be replaced with a "fake" file system which will return errors. This lets you test error code.
 - **Broken Test:** If you are programming alone and are finishing a coding session, leave the last test broken. This gives you a place to pick up next time. However if you are programming in a team, leave all tests running (so whoever picks up can start from a place of certainty).
+
+### Chapter 28: Green Bar Patterns
+- These are patterns to get your tests to go green quickly.
+- **Fake It:** Just have your code return constants to get the test working quickly. Then in the refacotring step you get it to work more generally by eliminating duplication of data between the test and code:
+  - This gives you a concrete end goal to work towards, which you can work back from
+  - It lets you get to green quickly, so you can refactor with confidence
+  - It gives you a clear problem to solve (scope control)
+- **Triangulate:** If you have a situation where you have an operation you want to implement but you are not sure how to abstract the operation so it works on any case, implement two examples in the test case. By satisfying both examples you can arrive at this abstraction. Generally this takes more work than "Fake It" or "Obvious Implementation" because you have to add multiple examples (where all but one will have to be deleted to avoid unnecessary duplication). However, if you are struggling, having the two examples can help you come to an abstraction.
+- **Obvious Implementation:** If you can already see an obvious, simple solution just implement it. However if this causes a test to fail, move back to one of the "Fake It" or "Triangulate" techniques. Implementing an solution straight from the get go is moving quickly, but in unsteady territory it is easier to "move down a gear" and go slower.
+- **One to Many:** When implementing an operation which works on a collection of objects (for example a list/tuple/set/etc of objects), make it work with a single item first. Then when you have figured that out you can make it work for all the collection.
