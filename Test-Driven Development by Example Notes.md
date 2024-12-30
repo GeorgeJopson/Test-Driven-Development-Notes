@@ -30,7 +30,7 @@
 
 - In TDD you always start with tests.
 - When you want to add a new feature, split it  into a to-do list of tests. Then focus on each test in turn (following the red-green-refactor steps to cross each test off). Add new tests when you think of them to the list.
-- When you write a test you are testing the API of some peice of code. Write the test imagining the perfect API of how you want the feature implemented. 
+- When you write a test you are testing the API of some piece of code. Write the test imagining the perfect API of how you want the feature implemented. 
 - By creating a test, you create a dependency between the test and the code. By reducing duplication as much as possible, you can help eliminate dependencies as much as possible.
 - In the refactor step, you can take many small steps of refactoring (each time ensuring the tests are still green).
 
@@ -41,7 +41,7 @@
   - **Make it run:** Quickly get the bar to go green. Speed dominates everything else in this phase.
   - **Make it right:** Remove all duplication you have introduced/all code mess. This includes duplication between test and code.
 - As you refactor the code, you may realise that the interface you defined in the first step, isn't actually the best way to implement the required behaviour. As part of refactoring you can change the test to fit with your new understanding of how the interface should work.
-- **How to approach TDD - 3 stratergies:**
+- **How to approach TDD - 3 strategies:**
   - **Fake it:** To get to green, return a constant. Then when refactoring gradually remove constants till you have real code. (With faking values, you create data duplication. By removing this duplication you'll arrive at a proper implementation.)
   - **Use obvious implementation:** If there is an obvious solution, you can just implement this.
   - **Triangulation:** If you are struggling to see how to remove duplication, by adding more test cases it can help you generalise a problem.
@@ -73,7 +73,7 @@
 
 ### Chapter 10: Interesting Times
 
-- With tests, instead of reasoning about whether something will work, you can emperically find the answer by running the tests.
+- With tests, instead of reasoning about whether something will work, you can empirically find the answer by running the tests.
 - Try not to add new tests when a current test is failing. If you need to, then it is best to rollback changes to a "green" state and then add the new test.
 
 ### Chapter 11: The Root of All Evil
@@ -109,7 +109,7 @@
 
 ### Chapter 18: First Steps to xUnit
 
-- Refactoring pattern: Hardwire your code to work for one instance and then generalise it to work with all instances by replacing constants with variables.
+- Refactoring pattern: Hard-wire your code to work for one instance and then generalise it to work with all instances by replacing constants with variables.
   - This is an advantage of TDD, you can start by implementing concrete examples you know work, and then generalising from there (instead of having to jump directly to the generalised example).
 - Don't be afraid to work in tiny steps (only changing a handful of lines at a time).
 
@@ -131,9 +131,9 @@
 - You should run your test after you write it, because even if you think it is going to fail you might be wrong (maybe your system already accounts for the tested feature).
 - Tests should be so fast that you can run them yourself and run them often. Then you can catch errors quickly.
 - **Isolated Tests:** Tests should be independent from each other.
-  - To have isolated tests you need to break your problem into many highly cohesive, losely coupled objects which can then easily (and quickly) be set up for each test.
+  - To have isolated tests you need to break your problem into many highly cohesive, loosely coupled objects which can then easily (and quickly) be set up for each test.
 - **Test List:** Before you begin, write a list of all the tests you will have to write. You can then add items to the list as you gain knowledge about the system.
-Add each operation you want to implement (along with each case of that) and then refacotrings you think you will need to do.
+Add each operation you want to implement (along with each case of that) and then refactorings you think you will need to do.
 - When you write a test, the next step is to implement it. Don't write all your tests at once as by getting a test to work you gain more knowledge which might help you write the next test. It also is a more interesting way to work.
 - Conservative TDD says that you should never be more than one change away from all your tests running.
 - **Test First:** Write your tests first. It can clarify in your head what you are doing, and give you a method for scope control.
@@ -161,7 +161,7 @@ Add each operation you want to implement (along with each case of that) and then
 
 ### Chapter 28: Green Bar Patterns
 - These are patterns to get your tests to go green quickly.
-- **Fake It:** Just have your code return constants to get the test working quickly. Then in the refacotring step you get it to work more generally by eliminating duplication of data between the test and code:
+- **Fake It:** Just have your code return constants to get the test working quickly. Then in the refactoring step you get it to work more generally by eliminating duplication of data between the test and code:
   - This gives you a concrete end goal to work towards, which you can work back from
   - It lets you get to green quickly, so you can refactor with confidence
   - It gives you a clear problem to solve (scope control)
@@ -177,16 +177,16 @@ Add each operation you want to implement (along with each case of that) and then
 ### Chapter 30: Design Patterns
 
 - **Command:** A method can return an object, which when the "run" method (or something equivalent) is invoked does the computation. This lets you pass round the object and you can call the operation whenever you need.
-- **Value Object:** An object where operations on the object always produce a new object (so the original object is never altered). This solves aliassing issues where there are multiple references to the same object in different parts of the program. Normally this can cause issues, as if the object is modified in one part of the program, then this could have unexpected side effects in other parts of the program. However with value objects, you know they are never going to change so this isn't a problem.
+- **Value Object:** An object where operations on the object always produce a new object (so the original object is never altered). This solves aliasing issues where there are multiple references to the same object in different parts of the program. Normally this can cause issues, as if the object is modified in one part of the program, then this could have unexpected side effects in other parts of the program. However with value objects, you know they are never going to change so this isn't a problem.
 - **Null Object:** Some methods may return null instead of a real object, which causes many checks for null in the code. Instead of returning null, return a default "null object" which just has default behaviour.
 - **Template Method:** Where a superclass contains a method written in terms of other methods, and then subclasses implement those methods in different ways. This "template method" has the gaps filled in by the subclass (as it defines the methods).
-- **Pluggable Object:** You can eliminate duplication of conditionals by encapsulating variation. We have seperate implementations of an interface for each option, and to choose one of these options we create it and store it. Then instead of having to create a conditional to select between each option, we just use the pre-created object.
+- **Pluggable Object:** You can eliminate duplication of conditionals by encapsulating variation. We have separate implementations of an interface for each option, and to choose one of these options we create it and store it. Then instead of having to create a conditional to select between each option, we just use the pre-created object.
 - **Pluggable Selector:** A technique for enabling different behavior for specific instances by storing a reference to the method that the instance should call and dynamically invoking it. This approach avoids the need for subclassing when the only variation between instances is a single method. It simplifies the design by eliminating the overhead of creating multiple subclasses for minor differences in behavior.
 - **Factory Method:** This is where you create new objects using a method instead of a constructor. The factory method will call a constructor to create an object, but can then do extra work before returning the object. It gives you more flexibility by introducing this level of indirection.
 - **Imposter:** To introduce variation into a computation, you can introduce a new object implementing the same interface/protocol but a different implementation. This can be utilised in the common examples:
   - Null object - You can treat the absence of data the same as the presence of data.
   - Composite - You can treat a collection of objects the same as a single object.
-- **Collecting Parameter:** To collect the results of an operation that is spread overal several objects, you can add a parameter to the operation which passes in an object where the results will be collected.
+- **Collecting Parameter:** To collect the results of an operation that is spread overall several objects, you can add a parameter to the operation which passes in an object where the results will be collected.
 - **Singleton:** A way to implement global variables in a language without global variables. This is an ANTI-PATTERN and *should not be used!!!*
 
 ### Chapter 31: Refactoring
@@ -198,11 +198,11 @@ Add each operation you want to implement (along with each case of that) and then
   - **Isolate Change:** When you have to change one part of a multi-part method/object, first isolate the part that has to change. Then in isolation it is easy to change. This isolation can be done via methods like *Extract Method* or *Method Object*.
   - **Migrate Data:** When refactoring moving from one representation of data to another can be a big change. This is antithetical to TDD. So instead temporarily duplicate the data. For example when changing the API of some system you could use these incremental steps:
     - Add a parameter in the new format.
-    - Translate from the new format parameter to old format internal represenetation
+    - Translate from the new format parameter to old format internal representation
     - Delete old format parameter
     - Replace use of old format with new format
     - Delete old format.
-  - **Extract Method:** To make a long complicated method easier to read, turn a small part into a seperate method and call the new method. This also has the added benefit of reducing the scope of local variables.
+  - **Extract Method:** To make a long complicated method easier to read, turn a small part into a separate method and call the new method. This also has the added benefit of reducing the scope of local variables.
   - **Inline Method:** Sometimes code can become too scattered across many different methods too easily see how you can move forward in refactoring. Inline method is simply where you replace a method invocation with the method code itself (basically the reverse of extract method). This lets you see everything in one place, so you can once again move forward with refactoring.
   - **Extract Interface:** This is used if you have an object but you want to create another implementation of those operations that object implements. Simply create an interface (extract an interface) which the original class implements. Then your new class can also use this interface.
   - **Move Method:** In some cases methods could be more suitable to be in a different class. A good time to be suspicious that this is the case is if you see more than one message being sent to another object in a method (perhaps the method would be better suited in the object that is being called so many times).
@@ -214,7 +214,7 @@ Add each operation you want to implement (along with each case of that) and then
 - Signs of bad tests/bad design creating bad tests:
   - **Long setup code:** If you have to spend hundreds of line creating objects from a simple assertion, your objects might be too big and need to be split (so individual parts can be tested easily).
   - **Setup duplication:** If you can't easily find a common place for common setup code, then there are too many objects too tightly coupled.
-  - **Long running tests:** TDD tests that take a long time to run, won't get run (defeating the point of TDD). This often occurs because you can't test parts of the design and have to setup/tear down the full thing ieach time.
+  - **Long running tests:** TDD tests that take a long time to run, won't get run (defeating the point of TDD). This often occurs because you can't test parts of the design and have to setup/tear down the full thing each time.
   - **Fragile tests:** Tests the break unexpectedly occur if parts of your program that should be separate actually have some connection.
 - You can delete tests if they don't increase your confidence in the system (because what it is testing is already covered by a different test) and if it isn't communicating something new to the reader.
 - **Switching to TDD mid-way through a project:** Instead of trying to do a huge refactor and write tests for everything, we slowly add tests into the parts of the code we are working on. By implementing these changes into code as wo go along, slowly the system will begin to look "test-driven".
