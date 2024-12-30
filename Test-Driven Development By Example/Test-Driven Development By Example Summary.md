@@ -1,0 +1,30 @@
+# Test-Driven Development By Example - Summary
+
+- **TDD Goal:** Make clean code that works.
+- **TDD Benefits:**
+  - Reduces defect density
+  - Allows us to be confident in our programming, when you make a change if all the tests still pass you know you haven't introduced any new defects.
+- **TDD Limitations:** TDD doesn't solve all your problems, other forms of testing are still required, like:
+  - Performance Testing
+  - Stress Testing
+  - Usability Testing
+- **Two Commandments of TDD:**
+  - Write new code only if an automated test has failed
+  - Eliminate duplication
+- **Red - Green - Refactor:** The cycle followed in TDD:
+  - **Red:** Write a test that doesn't work (not working includes not compiling). This test acts as the "story" of the interface you wished you had.
+  - **Green:** Make the test work (speed dominates everything else in this phase).
+  - **Refactor:** Eliminate duplication/mess created in the green stage. Duplication includes duplication between test and code.
+- **Test To-Do List:** Maintain a to-do list of test cases you want to implement. When you think of a new test case at it to the list, and then return to working on your current test. 
+- **Step Size:** In TDD we generally take small steps. This helps us to move confidently with tricky problems as we are only making small changes each time. This applies to both making a test work (if a test is too big to tackle at once, split it into smaller sub-tests), and refactoring. The changes we make should only be to a few lines at a time. However we can always move to a "higher gear" and make bigger changes at once when we are feeling confident.
+- **How to approach TDD - 3 strategies:**
+  - **Fake it:** To get to green, have your methods return the constants required by the test. This creates duplication of these constant values between the test and code. So gradually remove constants and replace them with real code till you arrive at a proper implementation.
+  - **Use obvious implementation:** If there is an obvious solution, you can just implement it.
+  - **Triangulation:** If the two previous approaches failed, add more examples to your test. By having more examples it can help generalise a problem. Then when you solve the problem, remove unnecessary extra examples.
+- **Decouple tests and code:** Tests should only use the public API of the unit you are testing.
+- **Development Tests:** When you don't know how to tackle a test you can start with a series of "development tests" working up to solving it. Then when you get the original test working you can delete the interim "development tests" that you used to get there.
+- **If it isn't tested, it might break:** When refactoring you will come across edge-cases/areas where the code isn't tested. Write tests retroactively to cover these areas.
+- **Work on one test at once:** Try not to add new tests when a current test is failing. If you find that you need to, rollback to the last state all tests worked and then add the new required test.
+- **Measurements of test quality:**
+  - **Statement Coverage:** Should be close to 100% if TDD followed religiously. Can be improved either by writing more tests or simplifying code (so existing tests cover more code).
+  - **Defect Insertion:** Method of automatically inserting errors into code and checking if tests catch it (by failing). Also known as mutation testing.
