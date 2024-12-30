@@ -188,3 +188,22 @@ Add each operation you want to implement (along with each case of that) and then
   - Composite - You can treat a collection of objects the same as a single object.
 - **Collecting Parameter:** To collect the results of an operation that is spread overal several objects, you can add a parameter to the operation which passes in an object where the results will be collected.
 - **Singleton:** A way to implement global variables in a language without global variables. This is an ANTI-PATTERN and *should not be used!!!*
+
+### Chapter 31: Refactoring
+
+- In TDD the semantics (what the program does) is specified in the tests. Refactoring is where we change our code while keeping the semantics the same.
+- You need to have enough tests to make sure that they specify the wanted semantics correctly. "It's no excuse to say, 'I knew there was a problem, but the tests all passed so I checked the code in.' Write more tests."
+- Common refactoring methods:
+  - **Reconcile Differences:** If you have two elements (e.g. two loop structures, two branches of a conditional, two methods, etc) which look similar, slowly make little changes to bring them closer together. Then when they are identical you can merge them/delete one. This iterative process of many small steps avoids the need to do big risky changes to eliminate duplication all at once.
+  - **Isolate Change:** When you have to change one part of a multi-part method/object, first isolate the part that has to change. Then in isolation it is easy to change. This isolation can be done via methods like *Extract Method* or *Method Object*.
+  - **Migrate Data:** When refactoring moving from one representation of data to another can be a big change. This is antithetical to TDD. So instead temporarily duplicate the data. For example when changing the API of some system you could use these incremental steps:
+    - Add a parameter in the new format.
+    - Translate from the new format parameter to old format internal represenetation
+    - Delete old format parameter
+    - Replace use of old format with new format
+    - Delete old format.
+  - **Extract Method:** To make a long complicated method easier to read, turn a small part into a seperate method and call the new method. This also has the added benefit of reducing the scope of local variables.
+  - **Inline Method:** Sometimes code can become too scattered across many different methods too easily see how you can move forward in refactoring. Inline method is simply where you replace a method invocation with the method code itself (basically the reverse of extract method). This lets you see everything in one place, so you can once again move forward with refactoring.
+  - **Extract Interface:** This is used if you have an object but you want to create another implementation of those operations that object implements. Simply create an interface (extract an interface) which the original class implements. Then your new class can also use this interface.
+  - **Move Method:** In some cases methods could be more suitable to be in a different class. A good time to be suspicious that this is the case is if you see more than one message being sent to another object in a method (perhaps the method would be better suited in the object that is being called so many times).
+  - **Method Object:** "How do you represent a complicated method that requires several parameters and local variables? Make an object out of the method." This lets you swap out and plug in new computations easily (by simply swapping out the method object). 
