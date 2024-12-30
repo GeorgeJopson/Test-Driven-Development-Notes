@@ -118,7 +118,7 @@
 - 3A framework for writing tests (also know as **given, when, then**):
   - **Arrange:** Create some objects
   - **Act:** Stimulate them
-  - **Assert:** Check the 
+  - **Assert:** Check the results are correct
 - The first step **arrange** is often the same from test to test
 - **Isolation** is key for tests, the success/failure of one test should be irrelevant to other tests.
   - Therefore, tests shouldn't share anything so objects should be recreated for each test that use them.

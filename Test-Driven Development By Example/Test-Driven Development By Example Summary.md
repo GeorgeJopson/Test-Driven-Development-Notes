@@ -11,8 +11,8 @@
 - **Two Commandments of TDD:**
   - Write new code only if an automated test has failed
   - Eliminate duplication
-- **Red - Green - Refactor:** The cycle followed in TDD:
-  - **Red:** Write a test that doesn't work (not working includes not compiling). This test acts as the "story" of the interface you wished you had.
+- **Red - Green - Refactor:** The cycle followed in TDD for each test, after which you follow the same cycle for the next test, and so on:
+  - **Red:** Write a test that doesn't work (not working includes not compiling). This test acts as the "story" of the interface you wished you had. Run the test before coding to check it isn't already working.
   - **Green:** Make the test work (speed dominates everything else in this phase).
   - **Refactor:** Eliminate duplication/mess created in the green stage. Duplication includes duplication between test and code.
 - **Test To-Do List:** Maintain a to-do list of test cases you want to implement. When you think of a new test case at it to the list, and then return to working on your current test. 
@@ -28,3 +28,30 @@
 - **Measurements of test quality:**
   - **Statement Coverage:** Should be close to 100% if TDD followed religiously. Can be improved either by writing more tests or simplifying code (so existing tests cover more code).
   - **Defect Insertion:** Method of automatically inserting errors into code and checking if tests catch it (by failing). Also known as mutation testing.
+- **Given, When, Then:** This is a format for writing tests(also known as Arrange, Act, Assert).
+  - **Given:** Create some objects
+  - **When:** Perform some operations on the objects
+  - **Then:** Check the results are correct
+- **Test Isolation:** Success/failure of one test should be independent of the success/failure of another. Therefore tests shouldn't share objects. To do this easily you need to break your solution into many highly cohesive, loosely coupled objects which can easily be set up for each test.
+- **Assert First:** When writing tests, start by writing the asserts. Then you can work backwards to fill out the rest of the test.
+- **Test Date:**
+  - Use minimal amount of test data necessary to check all different cases
+  - Never use same constant twice (unless the constant means the same thing), as this can cause confusion.
+  - Try make the connection between numbers used in test data obvious (perhaps by writing out the calculation to get from input to output data)
+- **Start Simple:** When implementing a new operation, start with the simplest test possible. Often this is making a test for a trivially easy version of the operation/a version of the operation that does nothing. For example with a method that adds to a value, test adding 0.
+- **Learning Tests:** When using an API you didn't develop, as part of learning the API create tests which verify how the API works. This teaches you how to use the software, and if a new version of the software is released you can run the tests to verify the code works the same way.
+- **Do over:** Don't be afraid to just start over. If you've made a complete mess, sometimes the quickest way forward is by starting from a blank slate with all the new knowledge you have.
+- **Mocks:** To test a unit that relies on a expensive/complicate resource you can create a fake version of that resource which returns pre-defined responses. Common example of a dependency that needs mocking is a database.
+  - **Crash Test Dummy:** A fake object/mock which returns an error from one of its methods, used to test error handling code.
+- **Fixtures:** Used to reduce duplication of setting objects up
+- **Refactoring Techniques:**
+  - **Reconcile Differences:** If you have two elements which look similar, slowly make little changes to bring them closer together. When they are identical you can merge/delete one to reduce duplication.
+  - **Isolate Change:** When you need to change one part of a multi-part method/object isolate it first to make it easy to change (can be done with techniques like *Extract Method* or *Method Object*).
+  - **Extract Method:** To make a long/complicated method easier to read, turn a small part of the method into a separate method and call the new method.
+  - **Inline Method:** The opposite of extract method, used when you are struggling to see how to move forward refactoring when code is scattered across the code base. You replace method invocations with the method code itself. This can bring all the code to one place, so it is easy to see how to move forward.
+  - **Method Object:** To represent a complicated method that requires several parameters/local variables, you can make an object out of the method. This also lets you swap out and plug in new computations easily (by swapping the method object).
+- **Signs of Bad Tests/Bad Code:**
+  - **Long setup code:** If you have to spend hundreds of line creating objects from a simple assertion, your objects might be too big and need to be split (so individual parts can be tested easily).
+  - **Setup duplication:** If you can't easily find a common place for common setup code, then there are too many objects too tightly coupled.
+  - **Long running tests:** TDD tests that take a long time to run, won't get run (defeating the point of TDD). This often occurs because you can't test parts of the design and have to setup/tear down the full thing each time.
+  - **Fragile tests:** Tests the break unexpectedly occur if parts of your program that should be separate actually have some connection.
