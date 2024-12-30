@@ -207,3 +207,18 @@ Add each operation you want to implement (along with each case of that) and then
   - **Extract Interface:** This is used if you have an object but you want to create another implementation of those operations that object implements. Simply create an interface (extract an interface) which the original class implements. Then your new class can also use this interface.
   - **Move Method:** In some cases methods could be more suitable to be in a different class. A good time to be suspicious that this is the case is if you see more than one message being sent to another object in a method (perhaps the method would be better suited in the object that is being called so many times).
   - **Method Object:** "How do you represent a complicated method that requires several parameters and local variables? Make an object out of the method." This lets you swap out and plug in new computations easily (by simply swapping out the method object). 
+
+### Chapter 32: Mastering TDD
+
+- Unless you have reason to distrust it, don't test code from others.
+- Signs of bad tests/bad design creating bad tests:
+  - **Long setup code:** If you have to spend hundreds of line creating objects from a simple assertion, your objects might be too big and need to be split (so individual parts can be tested easily).
+  - **Setup duplication:** If you can't easily find a common place for common setup code, then there are too many objects too tightly coupled.
+  - **Long running tests:** TDD tests that take a long time to run, won't get run (defeating the point of TDD). This often occurs because you can't test parts of the design and have to setup/tear down the full thing ieach time.
+  - **Fragile tests:** Tests the break unexpectedly occur if parts of your program that should be separate actually have some connection.
+- You can delete tests if they don't increase your confidence in the system (because what it is testing is already covered by a different test) and if it isn't communicating something new to the reader.
+- **Switching to TDD mid-way through a project:** Instead of trying to do a huge refactor and write tests for everything, we slowly add tests into the parts of the code we are working on. By implementing these changes into code as wo go along, slowly the system will begin to look "test-driven".
+- Benefits of TDD:
+  - Reduced defect rates (allowing less stressful programming)
+  - Short cycles where you get feedback almost instantly (so ideas can be validates quickly)
+  - Simple Design: You only code what you need to get the tests working, and you remove all duplication before moving on. This automatically moves you towards a simpler, more elegant design.
