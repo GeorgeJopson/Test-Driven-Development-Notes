@@ -173,3 +173,18 @@ Add each operation you want to implement (along with each case of that) and then
 
 - All tests should be written use only public protocol/the public API of the unit you are testing. This means you can refactor the implementation, without refactoring the test.
 - Fixtures can be used to reduce duplication of setting objects up.
+
+### Chapter 30: Design Patterns
+
+- **Command:** A method can return an object, which when the "run" method (or something equivalent) is invoked does the computation. This lets you pass round the object and you can call the operation whenever you need.
+- **Value Object:** An object where operations on the object always produce a new object (so the original object is never altered). This solves aliassing issues where there are multiple references to the same object in different parts of the program. Normally this can cause issues, as if the object is modified in one part of the program, then this could have unexpected side effects in other parts of the program. However with value objects, you know they are never going to change so this isn't a problem.
+- **Null Object:** Some methods may return null instead of a real object, which causes many checks for null in the code. Instead of returning null, return a default "null object" which just has default behaviour.
+- **Template Method:** Where a superclass contains a method written in terms of other methods, and then subclasses implement those methods in different ways. This "template method" has the gaps filled in by the subclass (as it defines the methods).
+- **Pluggable Object:** You can eliminate duplication of conditionals by encapsulating variation. We have seperate implementations of an interface for each option, and to choose one of these options we create it and store it. Then instead of having to create a conditional to select between each option, we just use the pre-created object.
+- **Pluggable Selector:** A technique for enabling different behavior for specific instances by storing a reference to the method that the instance should call and dynamically invoking it. This approach avoids the need for subclassing when the only variation between instances is a single method. It simplifies the design by eliminating the overhead of creating multiple subclasses for minor differences in behavior.
+- **Factory Method:** This is where you create new objects using a method instead of a constructor. The factory method will call a constructor to create an object, but can then do extra work before returning the object. It gives you more flexibility by introducing this level of indirection.
+- **Imposter:** To introduce variation into a computation, you can introduce a new object implementing the same interface/protocol but a different implementation. This can be utilised in the common examples:
+  - Null object - You can treat the absence of data the same as the presence of data.
+  - Composite - You can treat a collection of objects the same as a single object.
+- **Collecting Parameter:** To collect the results of an operation that is spread overal several objects, you can add a parameter to the operation which passes in an object where the results will be collected.
+- **Singleton:** A way to implement global variables in a language without global variables. This is an ANTI-PATTERN and *should not be used!!!*
