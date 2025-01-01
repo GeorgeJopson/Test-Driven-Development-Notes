@@ -7,7 +7,7 @@
 - **If you used no mocks:**
   - Execution of test suite will likely be slow. Web servers/databases/services over network are often the bottleneck if you don't mock them out.
   - Test coverage likely to be low as it is very hard to test some situations without using mocks. For example error conditions
-  - Tests are sensitive to faults in parts of system unrelated to what is being tested. Can make tests flaky and tricky to debug.
+  - Tests are sensitive to faults in parts of system unrelated to what is being tested. Can make tests tricky to debug.
 - **If you used too many mocks:**
   - Can make tests slower if you mock out a class with something slower than it.
   - Mocking interactions between all classes can cause setup code to become extremely complicated. It also means mocking structure becomes highly coupled to implementation details (making refactoring increasingly tricky).
