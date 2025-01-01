@@ -70,5 +70,5 @@
 - **Signs of Bad Tests/Bad Code:**
   - **Long setup code:** If you have to spend hundreds of line creating objects from a simple assertion, your objects might be too big and need to be split (so individual parts can be tested easily).
   - **Setup duplication:** If you can't easily find a common place for common setup code, then there are too many objects too tightly coupled.
-  - **Long running tests:** TDD tests that take a long time to run, won't get run (defeating the point of TDD). This often occurs because you can't test parts of the design and have to setup/tear down the full thing each time.
-  - **Fragile tests:** Tests the break unexpectedly occur if parts of your program that should be separate actually have some connection.
+  - **Long running tests:** TDD tests that take a long time to run, won't get run (defeating the point of TDD). This often occurs because you can't test parts of the design by themselves and have to setup/tear down the full thing each time.
+  - **Fragile tests:** Tests that break unexpectedly occur if parts of your program that should be separate actually have some connection.
