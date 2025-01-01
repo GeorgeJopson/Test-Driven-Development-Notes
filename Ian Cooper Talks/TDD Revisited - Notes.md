@@ -11,6 +11,7 @@
 - **Principle:** Developers write developer tests.
 - **Developer Test:** *Developer tests test behaviour of the public API that is exposed to users (the public API that other people depend upon).* If a program's behaviour is stable from an observer's perspective then no developer tests should change. While the modules under test aren't isolated from each other, tests are still isolated from each other (as the running of one test shouldn't effect the other).
   - This means with developer tests you don't mock out dependencies/other modules. The only exception to this is shared fixtures which are generally I/O objects like databases or calls to external HTTP API's. These get mocked for speed and to ensure that each test is independent from each other.
+  - Failure of a developer test under TDD implicates only the most recent edit. If a test fails it only tells you the most recent edit was wrong. This means that you should only make small changes, as this can help localise the error when a test fails.
 
 ## Fallacy: The trigger for a new test is a new function
 
