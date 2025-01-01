@@ -37,7 +37,7 @@
   - **Then:** Check the results are correct
 - **Test Isolation:** Success/failure of one test should be independent of the success/failure of another. Therefore tests shouldn't share objects. To do this easily you need to break your solution into many highly cohesive, loosely coupled objects which can easily be set up for each test.
 - **Assert First:** When writing tests, start by writing the asserts. Then you can work backwards to fill out the rest of the test.
-- **Test Date:**
+- **Test Data:**
   - Use minimal amount of test data necessary to check all different cases
   - Never use same constant twice (unless the constant means the same thing), as this can cause confusion.
   - Try make the connection between numbers used in test data obvious (perhaps by writing out the calculation to get from input to output data)
