@@ -34,3 +34,10 @@
 - Heuristic: **Mock sparingly:**
   - By reserving mocking for architecturally significant boundaries you will keep mocking to a minimum.
   - If you find within an architectural boundary you need a mock to test, find a way to design the system so this isn't needed.
+
+  ## Extra Notes
+  - *These are some ideas I had on this article.*
+  - In the context of this article, we can apply the standard testing pyramid:
+    - Unit Tests: Test a single module in isolation
+    - Integration Tests: Test the integration of two or more modules. Also test the integration between modules and external dependencies like databases or external HTTP APIs.
+    - E2E Tests: Test the whole system (so all modules together, including the UI)
