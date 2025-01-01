@@ -1,6 +1,7 @@
 # When to Mock Notes
 
 - *These notes are on the article: https://blog.cleancoder.com/uncle-bob/2014/05/10/WhenToMock.html*
+- *Note: Some of these ideas run contrary to ideas expressed by Ian Cooper. I included these notes to show the difference in beliefs around mocking.*
 
 ## The Extremes
 
