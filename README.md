@@ -1,4 +1,5 @@
-A collection of notes on Test Driven Development compiled from resources below:
+This repo holds my notes for a presentation I gave while working as a software develop at the Wellcome Sanger Institute.
+The notes on Test Driven Development were compiled from resources below:
 
 - **Book:** Test-Driven Development by Example *(by Kent Beck)*
 - **Article:** When to Mock *(by Robert C. Martin aka Uncle Bob)*
